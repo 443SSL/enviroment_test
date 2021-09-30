@@ -1,9 +1,9 @@
-# location: spec/unit/unit_spec.rb
+# location: spec/unit/author_unit_spec.rb
 require 'rails_helper'
 
 RSpec.describe Book, type: :model do
   subject do
-    described_class.new(title: 'harry potter', author: 'JK Rowling', price: 6.5, published_date: '06/26/1997')
+    described_class.new(title: 'harry potter', author: 'JK Rowling', price: 6.5, published_date: Date.new(1997, 6, 26))
   end
 
   it 'is valid with valid attributes' do
@@ -11,7 +11,7 @@ RSpec.describe Book, type: :model do
   end
 
   it 'is not valid without a name' do
-    subject.title = nil
+    subject.author = nil
     expect(subject).not_to be_valid
   end
 end
